@@ -1,0 +1,29 @@
+The program can be run by the following command, 
+where the arguments are in list form with the given order
+Important: run them in the following order, emulator->router(1,2,3,4,5)
+
+Run emulator: ./nse-linux386
+Arguments are:
+<IP/host of the host running the router instances>
+<port to identify socket of the Network simulator>
+
+Run Routers 5 times: python3 router.py
+Arguments are:
+<router_id> ie: 1, 2, 3, 4, 5
+<IP/host of the host running network simulator>
+<port to identify socket of the Network simulator>
+<socket for each of the router instances>
+
+You can also using the router.sh to run the router program
+just start with ./router.sh instead of python3 router.py
+
+Example execution:
+@ubuntu1804-002 ./nse-linux386 ubuntu1804-008 6666
+@ubuntu1804-008 python3 router.py 1 ubuntu1804-002 6666 7100
+@ubuntu1804-008 python3 router.py 2 ubuntu1804-002 6666 7200
+@ubuntu1804-008 python3 router.py 3 ubuntu1804-002 6666 7300
+@ubuntu1804-008 python3 router.py 4 ubuntu1804-002 6666 7400
+@ubuntu1804-008 python3 router.py 5 ubuntu1804-002 6666 7500
+
+I have used python3 to compile the program
+Test and build on linux.student.cs environment: z357liu@ubuntu1804-008, z357liu@ubuntu1804-002 

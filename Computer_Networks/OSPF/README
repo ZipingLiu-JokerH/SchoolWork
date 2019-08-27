@@ -1,3 +1,5 @@
+The goal of this assignment is to implement the OSPF algorithm.
+
 The program can be run by the following command, 
 where the arguments are in list form with the given order
 Important: run them in the following order, emulator->router(1,2,3,4,5)

@@ -1,0 +1,37 @@
+The program can be run by the following command, 
+where the arguments are in list form with the given order
+Important: run them in the following order, emulator->receiver->sender
+
+Run emulator: ./nEmulator-linux386 
+Arguments are:
+<emulator's receiving UDP port number in the forward(sender) direction>
+<receiver’s network address>
+<receiver’s receiving UDP port number>
+<emulator's receiving UDP port number in the backward(receiver) direction>
+<sender’s network address>
+<sender’s receiving UDP port number>
+<maximum delay of the link in units of millisecond>
+<packet discard probability>
+<verbose-mode>
+
+Run Receiver: python3 receiver.py
+Arguments are:
+<hostname for the network emulator>
+<UDP port number used by the link emulator to receive ACKs from the receiver>
+<UDP port number used by the receiver to receive data from the emulator>
+<name of the file into which the received data is written>
+
+Run Sender: python3 sender.py
+Arguments are:
+<hostname for the network emulator>
+<UDP port number used by the link emulator to receive data from the sender>
+<UDP port number used by the sender to receive ACKs from the emulator>
+<name of the file to be transferred>
+
+Example execution:
+@ubuntu1804-008 ./nEmulator-linux386 9951 ubuntu1804-002 9954 9953 ubuntu1804-004 9952 50 0.2 0
+@ubuntu1804-002 python3 receiver.py ubuntu1804-008 9953 9954 out.txt
+@ubuntu1804-004 python3 sender.py ubuntu1804-008 9951 9952 in.txt 
+
+I have used python3 to compile the program
+Test and build on linux.student.cs environment: z357liu@ubuntu1804-008, z357liu@ubuntu1804-004, z357liu@ubuntu1804-002 
